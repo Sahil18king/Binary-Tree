@@ -1,4 +1,4 @@
-public class BuildTree {
+public class BuildTreeB {
     static class Node {
         int data;
         Node left;
