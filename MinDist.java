@@ -11,6 +11,23 @@ public class BinaryTreeC {
             this.right = null ;
         }
     }
+     //Lower common ancestor method 2
+     public static Node lca2(Node root, int n1, int n2){
+        if(root == null || root.data == n1 || root.data == n2){
+            return root;
+        }
+        Node leftLca = lca2(root.left, n1, n2);
+        Node rightLca = lca2(root.right, n1, n2);
+        //leftCA = val rightLca =null
+        
+        if(rightLca == null){
+            return leftLca;
+        }
+        if(leftLca == null){
+            return rightLca;
+        }
+        return root;
+     }
   //Min Dist Between Nodes
      
      public static int lcaDist(Node root, int n){
@@ -47,6 +64,6 @@ public class BinaryTreeC {
         root.right.left = new Node(6);
         root.right.right = new Node(7);
         int n1 = 4, n2 = 5;
-        System.out.println(minDist(root, n1, n2).data);
+        System.out.println(minDist(root, n1, n2));
     }
 }
